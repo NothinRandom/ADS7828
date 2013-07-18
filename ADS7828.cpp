@@ -34,11 +34,11 @@ int ADS7828::read(byte channel)
   	if (Wire.available())
   	{
   		_value = 0; //reset value back to 0
-    	_value += Wire.read() << 8; //grab high byte
-    	if (Wire.available())
-      		_value += Wire.read(); //grab low byte
-   	 	else
-      		return -1; //low byte not available
+    		_value += Wire.read() << 8; //grab high byte
+    		if (Wire.available())
+      			_value += Wire.read(); //grab low byte
+   		else
+      			return -1; //low byte not available
   	}
   	else
     	return -2; //IC not detected
